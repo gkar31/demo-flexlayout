@@ -1,0 +1,50 @@
+  <mat-spinner *ngIf="carsLoading" [ngClass]="'custom-center'"></mat-spinner>
+
+
+
+<div *ngIf="!carsLoading">
+
+
+  <mat-chip-list>
+
+  </mat-chip-list>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+
+          <ng-container matColumnDef="Picture">
+            <th mat-header-cell *matHeaderCellDef [ngClass]="'custom-mat-column-picture'" >  </th>
+            <td mat-cell *matCellDef="let element" [ngClass]="'custom-mat-column-picture'" > <img [src]="element.Image" alt="No Picture available" width="148" height="100"> </td>
+          </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Name" >
+      <th mat-header-cell *matHeaderCellDef [ngClass]="'custom-mat-header'"> Name </th>
+      <td mat-cell *matCellDef="let element" [ngClass]="'custom-mat-column-name'"> &nbsp; &nbsp;<mat-chip color="primary" selected>{{element.Marque | uppercase}}</mat-chip> {{element.Modele}} {{element.Serie}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Power">
+      <th mat-header-cell *matHeaderCellDef [ngClass]="'custom-mat-header'"> Power (ch) </th>
+      <td mat-cell *matCellDef="let element"> {{element.Puissance_ch}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Couple">
+      <th mat-header-cell *matHeaderCellDef [ngClass]="'custom-mat-header'"> Couple (n.m) </th>
+      <td mat-cell *matCellDef="let element"> {{element.Couple_Nm}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Perf">
+      <th mat-header-cell *matHeaderCellDef  [ngClass]="'custom-mat-header'"> Indice Performance </th>
+      <td mat-cell *matCellDef="let element"> {{element.Indice_Perf}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="'custom-mat-header'" ></tr>
+    <tr mat-row (click)="displayCarsDetail(row)"  *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
