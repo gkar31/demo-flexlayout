@@ -7,7 +7,8 @@ import {
   MatTableModule,
   MatChipsModule,
   MatProgressSpinnerModule,
-  MatCardModule
+  MatCardModule,
+  MatSortModule
 } from '@angular/material';
 
 const Material = [
@@ -16,7 +17,8 @@ const Material = [
   MatChipsModule,
   MatProgressSpinnerModule,
   MatCardModule,
-  FlexLayoutModule
+  FlexLayoutModule,
+  MatSortModule
 ];
 
 

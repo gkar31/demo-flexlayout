@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router }  from '@angular/router';
+import { MatSort, MatTableDataSource } from '@angular/material';
 
 import { CarsService } from './../cars.service';
 import { ICar } from './../car';
@@ -10,24 +11,40 @@ import { ICar } from './../car';
   templateUrl: './cars-list.component.html',
   styleUrls: ['./cars-list.component.css']
 })
+
 export class CarsListComponent implements OnInit {
+
+  @ViewChild(MatSort, { static: false }) sort: MatSort;
+
 
   public cars:ICar[] = [];
 
   displayedColumns: string[] = ['Picture', 'Name', 'Power', 'Couple', 'Perf'];
 
-  dataSource:ICar[] = [];
+  dataSource = new MatTableDataSource();
+
+
 
   carsLoading = false;
 
   constructor(private router: Router, private _carService: CarsService) { }
 
   ngOnInit() {
+    console.log(this.sort);
+
+    this.dataSource.sort = this.sort;
     this.carsLoading = true;
+
     this._carService.getCars()
     .subscribe(data => {
+
+      this.dataSource.sort = this.sort;
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.sort = this.sort;
+
+      console.log(this.dataSource);
       this.carsLoading=false;
-      this.dataSource = data
+
     });
 
 

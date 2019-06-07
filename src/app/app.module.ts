@@ -24,6 +24,7 @@ import { ICar } from './car';
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule
+
   ],
   providers: [CarsService],
   bootstrap: [AppComponent]
