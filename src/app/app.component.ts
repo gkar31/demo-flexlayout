@@ -1,4 +1,4 @@
-import { Component,  } from '@angular/core';
+import { Component } from '@angular/core';
 
 
 @Component({
@@ -9,8 +9,8 @@ import { Component,  } from '@angular/core';
 export class AppComponent {
 
 
+  public title = 'demo Material-Flex-Layout';
 
-  title = 'demo Material-Flex-Layout';
 
 
 }
