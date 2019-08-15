@@ -3,6 +3,7 @@ import { Router }  from '@angular/router';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 
+
 import { CarsService } from './../cars.service';
 import { ICar } from './../car';
 
@@ -44,6 +45,8 @@ export class CarsListComponent implements OnInit  {
 
 
   carsLoading = false;
+
+  @ViewChild(MatSort) sort: MatSort;
 
   constructor(private router: Router, private _carService: CarsService) { }
 
