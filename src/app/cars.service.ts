@@ -11,8 +11,8 @@ import { Observable } from "rxjs/Observable";
 export class CarsService {
 
 private _url: string ='https://musclecars.herokuapp.com/carlist'; //'http://localhost:3000/cars';//
-private _localLogosUrl: string ="http://localhost:4000/logos";
-private _localLogoUrl: string ="http://localhost:4000/logo";
+private _localLogosUrl: string ="http://localhost:3000/logos";
+private _localLogoUrl: string ="http://localhost:3000/logo";
 
 public currentCar:ICar ;
 public logos: Observable<ILogo[]> = undefined;
