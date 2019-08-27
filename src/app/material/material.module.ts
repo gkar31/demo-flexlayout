@@ -8,6 +8,9 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 const Material = [
   MatButtonModule,
@@ -16,7 +19,10 @@ const Material = [
   MatProgressSpinnerModule,
   MatCardModule,
   FlexLayoutModule,
-  MatSortModule
+  MatSortModule,
+  MatAutocompleteModule,
+  MatInputModule,
+  MatFormFieldModule
 ];
 
 

@@ -1,0 +1,13 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Musclecar" aria-label="Car" [matAutocomplete]="auto" [formControl]="carCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let car of filteredCars | async" [value]="car.Marque + ' '+ car.Modele">
+        <img class="example-option-img" aria-hidden [src]="car.Image" height="25">
+        <span>{{car.Marque}}</span> |
+        <small>Modele: {{car.Modele}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+</form>
