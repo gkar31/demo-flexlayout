@@ -14,8 +14,11 @@ import {map, startWith } from 'rxjs/operators';
 export class MatchRaceComponent implements OnInit {
 
   carCtrl = new FormControl();
-  filteredCars: Observable<ICar[]>;
+  filteredCars1: Observable<ICar[]>;
   allCars:ICar[];
+  car1="";
+  car2="";
+  currentCar1:ICar;
 
   constructor(private _carService: CarsService) {
     
@@ -27,7 +30,7 @@ export class MatchRaceComponent implements OnInit {
     .subscribe(data => {
 
       this.allCars = data;
-      this.filteredCars = this.carCtrl.valueChanges
+      this.filteredCars1 = this.carCtrl.valueChanges
       .pipe(
         startWith(''),
         map(car => car ? this._filterCars(car) : this.allCars.slice())
@@ -38,7 +41,11 @@ export class MatchRaceComponent implements OnInit {
   private _filterCars(value: string): ICar[] {
     const filterValue = value.toLowerCase();
 
-    return this.allCars.filter(car => car.Modele.toLowerCase().indexOf(filterValue) === 0);
+    return this.allCars.filter(car => car.Modele.toLowerCase().indexOf(filterValue) === 0 || car.Marque.toLowerCase().indexOf(filterValue) === 0);
   }
 
+
+  setCar4Race1(pcar: ICar){
+    this.currentCar1 = pcar;
+  }
 }
