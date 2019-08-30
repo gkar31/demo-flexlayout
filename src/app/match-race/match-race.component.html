@@ -1,5 +1,8 @@
 <h1>Match Race</h1>
 
+<div class="container"
+      fxLayout
+      fxLayout="row" fxLayoutAlign="space-between" >
 <form class="example-form">
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Racer #1" aria-label="Car" [matAutocomplete]="auto" [formControl]="carCtrl" [(ngModel)]="car1">
@@ -34,3 +37,4 @@
       <img class="example-option-img" aria-hidden [src]="currentCar2.Image" height="200">
   </div>
   </form>
+  </div>
